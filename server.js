@@ -1,7 +1,7 @@
 var
   express     = require("express")
-  ,mongoose   = require("mongoose")
   ,app        = express()
+  ,mongoose   = require("mongoose")
   ,logger     = require("morgan")
   ,bodyParser = require("body-parser")
   ,toDoRoutes = require("./routes/toDoRoutes.js")
