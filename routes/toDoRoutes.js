@@ -1,15 +1,15 @@
 var
   toDosController = require("../controllers/toDosController.js")
-  ,express        = express()
+  ,express        = require("express")
   ,toDoRoutes     = express.Router()
 
 toDoRoutes.route("/")
-  .get(toDosController.index)
-  .post(toDosController.create)
+  .get(toDosController.indexToDos)
+  .post(toDosController.createToDo)
 
 toDoRoutes.route("/:id")
-  .get(toDosController.show)
-  .put(toDosController.update)
-  .delete(toDosController.destroy)
+  .get(toDosController.showToDo)
+  .put(toDosController.updateToDo)
+  .delete(toDosController.destroyToDo)
 
 module.exports = toDoRoutes
