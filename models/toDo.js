@@ -1,16 +1,15 @@
 var mongoose = require('mongoose')
 
-///////////////////MONGOOSE SCHEMA//////////////////////
+// Mongoose schema for ToDo model.
 var toDoSchema = new mongoose.Schema({
   title: {type: String, require: true, unique: true},
   body: String,
   priority: Number,/*will be 1 (high) 2 (medium) 3(low)*/
   done: Boolean
 })
-///////////////////MONGOOSE SCHEMA/////////////////////////
 
+// Declare ToDo model.
 var ToDo = mongoose.model('ToDo', toDoSchema)
 
-//////////////////////EXPORTS///////////////////////////////
-module.exports  = ToDo
-//////////////////////EXPORTS///////////////////////////////
+// Export ToDo model.
+module.exports = ToDo
