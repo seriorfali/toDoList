@@ -6,3 +6,5 @@ var gottaDoSchema = new mongoose.Schema({
   body: String
 })
 ///////////////////MONGOOSE SCHEMA/////////////////////////
+
+var GottaDo = mongoose.model('GottaDo', gottaDoSchema)
