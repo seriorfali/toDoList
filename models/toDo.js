@@ -9,8 +9,8 @@ var toDoSchema = new mongoose.Schema({
 })
 ///////////////////MONGOOSE SCHEMA/////////////////////////
 
-var toDo = mongoose.model('toDo', gottaDoSchema)
+var ToDo = mongoose.model('ToDo', toDoSchema)
 
 //////////////////////EXPORTS///////////////////////////////
-module.exports  = toDo
+module.exports  = ToDo
 //////////////////////EXPORTS///////////////////////////////
