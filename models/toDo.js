@@ -1,14 +1,15 @@
 var mongoose = require('mongoose')
 
 ///////////////////MONGOOSE SCHEMA//////////////////////
-var gottaDoSchema = new mongoose.Schema({
+var toDoSchema = new mongoose.Schema({
   title: {type: String, require: true, unique: true},
-  body: String
+  body: String,
+  priority: Number /*will be 1 (high) 2 (medium) 3(low)*/
 })
 ///////////////////MONGOOSE SCHEMA/////////////////////////
 
-var GottaDo = mongoose.model('GottaDo', gottaDoSchema)
+var toDo = mongoose.model('toDo', gottaDoSchema)
 
 //////////////////////EXPORTS///////////////////////////////
-module.exports  = GottaDo
+module.exports  = toDo
 //////////////////////EXPORTS///////////////////////////////
