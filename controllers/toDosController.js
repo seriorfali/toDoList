@@ -20,7 +20,7 @@ function create(req, res){
 
 //create action to show a single ToDo
 function show(req, res) {
-	ToDo.find({_id: req.params.id}, function(err,toDo){
+	ToDo.findById(req.params.id, function(err,toDo){
 		if (err) console.log(err)
 		res.json(toDo)
 	})
@@ -37,15 +37,17 @@ function update(req, res) {
 
 //create action to delete a single user
 function destroy(req, res) {
- ToDo.remove({_id: req.params.id}, function(err) {
+ ToDo.findOneAndRemove({_id: req.params.id}, function(err) {
 	 if(err) console.log(err)
-	 res.json({success: true, message: 'deleted toDo'})
+	 res.json({success: true, message: 'deleted toDo'
+   res.redirect('/');
+ })
  })
 }
 
 
 module.exports = {
-  alltoDos: index
+  indextoDos: index
   createtoDo: create
 	showtoDo: show,
 	updatetoDo: update,
