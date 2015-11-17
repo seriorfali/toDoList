@@ -18,12 +18,36 @@
       </div>
       <button type="button" class="addToDos">+</button>
     </form>
-    <div class="toDoEdits" role="group" aria-label="...">
-      <button type="button" class="deleteToDos">×</button>
-    </div>
     <script type="text/javascript">
-      var priorities = "<div class='dropdown toDoPriorities'><button class='btn btn-default dropdown-toggle' type='button' id='dropdownMenu1' data-toggle='dropdown' aria-haspopup='true' aria-expanded='true'>Priority<span class='caret'></span></button><ul class='dropdown-menu' aria-labelledby='dropdownMenu1'><li class='highPriority'>High</li><li class='mediumPriority'>Medium</li><li class='lowPriority'>Low</li></ul></div>"
-      var toDo = "<div class='toDos'><input type='checkbox' class='checkBoxes'>" + priorities + "<span>" + $('#newToDo').val() + "</span><i class='glyphicon glyphicon-remove deleteToDos'></i></div>"
+      // Add item to to do list.
+      function addListItem(name) {
+        var priorities = "<div class='dropdown toDoPriorities'><button class='btn btn-default dropdown-toggle' type='button' id='dropdownMenu1' data-toggle='dropdown' aria-haspopup='true' aria-expanded='true'>Priority<span class='caret'></span></button><ul class='dropdown-menu' aria-labelledby='dropdownMenu1'><li class='highPriority'>High</li><li class='mediumPriority'>Medium</li><li class='lowPriority'>Low</li></ul></div>"
+        var item = "<div class='toDos'><input type='checkbox' class='checkBoxes'>" + priorities + "<span>" + name + "</span><i class='glyphicon glyphicon-remove deleteToDos'></i></div>"
+        return item
+      }
+
+      // Display all to dos in database.
+      $.ajax({
+        url: "/todos",
+        method: "GET",
+        success: function(toDos) {
+          toDos.forEach(function(toDo) {
+            addListItem(toDo.name)
+          })
+        }
+      })
+
+      // Add new item to to do list.
+      $(".addToDos").each.on("click", function() {
+        $.ajax({
+          url: "/todos",
+          method: "POST",
+          success: function(newToDo) ({
+            $("#toDos").append(addListItem($('#newToDo').val()))
+            $("#newToDo").val("")
+          })
+        })
+      })
     </script>
   </body>
 </html>
