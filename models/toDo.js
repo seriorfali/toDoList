@@ -4,7 +4,8 @@ var mongoose = require('mongoose')
 var toDoSchema = new mongoose.Schema({
   title: {type: String, require: true, unique: true},
   body: String,
-  priority: Number /*will be 1 (high) 2 (medium) 3(low)*/
+  priority: Number,/*will be 1 (high) 2 (medium) 3(low)*/
+  done: Boolean
 })
 ///////////////////MONGOOSE SCHEMA/////////////////////////
 
