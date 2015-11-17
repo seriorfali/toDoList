@@ -2,8 +2,8 @@ var mongoose = require('mongoose')
 
 // Mongoose schema for ToDo model.
 var toDoSchema = new mongoose.Schema({
-  title: {type: String, require: true, unique: true},
-  body: String,
+  name: {type: String, require: true, unique: true},
+  description: String,
   priority: Number,/*will be 1 (high) 2 (medium) 3(low)*/
   done: Boolean
 })
