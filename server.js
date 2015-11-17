@@ -15,7 +15,9 @@ app.use(logger("dev"))
 
 // Middleware:
 // To set public folder as static assets server.
-app.use(express.static("public"))
+app.use(express.static(__dirname + "/public"))
+app.use(bodyParser.json())
+app.use(bodyParser.urlencoded({"extended":"true"}))
 
 // Routes:
 app.use("/todos", toDoRoutes)
