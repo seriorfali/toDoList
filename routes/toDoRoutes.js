@@ -1,7 +1,7 @@
 var
   toDosController = require("../controllers/toDosController.js")
-  ,express   = express()
-  ,toDoRoutes = express.Router()
+  ,express        = express()
+  ,toDoRoutes     = express.Router()
 
 toDoRoutes.route("/")
   .get(toDosController.index)
